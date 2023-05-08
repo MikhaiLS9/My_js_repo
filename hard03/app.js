@@ -8,7 +8,7 @@ const week = {
   Sunday: "Воскресенье",
 };
 
-const lang = (lang) => {
+const lang = (lang,num) => {
   //   используем if
   //   if (lang === "ru") {
   //     return Object.values(week);
@@ -49,11 +49,11 @@ const lang = (lang) => {
       "Sunday",
     ],
   };
-  return week[lang];
+  return week[lang][num];
 };
 
-console.log(lang("en"));
-console.log(lang("ru"));
+console.log(lang("en",1));
+console.log(lang("ru",1));
 
 const namePerson = (name) =>
   name === "Артем"
