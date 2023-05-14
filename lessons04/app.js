@@ -1,22 +1,64 @@
-const getAllServicePrices = (...servicePrice) => {
-  return servicePrice.reduce((acc, item) => (acc += item));
-};
-console.log(getAllServicePrices(1000, 2000));
+let title = prompt("Как называется ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать?");
+let screenPrice = +prompt("Сколько будет стоить данная работа?");
+let adaptive = confirm("Нужен ли адаптив на сайте?");
+let service1 = prompt("Какой дополнительный тип услуги нужен?");
+let servicePrice1 = +prompt("Сколько это будет стоить?");
+let service2 = prompt("Какой дополнительный тип услуги нужен?");
+let servicePrice2 = +prompt("Сколько это будет стоить?");
+let rollback = 10;
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+let servicePercentPrice = fullPrice - fullPrice * (rollback / 100);
 
-function getFullPrice(screenPrice, f1) {
-  return screenPrice + f1;
+function getAllServicePrices() {
+  return (allServicePrices = servicePrice1 + servicePrice2);
 }
-console.log(getFullPrice(5000, getAllServicePrices(3000, 5000)));
+
+getAllServicePrices();
+
+function getFullPrice() {
+  return (fullPrice = screenPrice + allServicePrices);
+}
 
 function getTitle(titel) {
   titel = titel.trim("");
-  const newStr = titel[0].toUpperCase() + titel.slice(1);
-  return newStr;
+  return titel[0].toUpperCase() + titel.slice(1);
 }
-console.log(getTitle("maksim"));
 
-function getServicePercentPrices(fullPrice, rollback) {
-  const servicePercentPrice = fullPrice - (fullPrice / 100) * rollback;
-  return servicePercentPrice;
+getTitle();
+
+
+function getServicePercentPrices() {
+  return (servicePercentPrice = fullPrice - rollback);
 }
-console.log(getServicePercentPrices(15000, 10));
+
+getServicePercentPrices();
+
+const getRollbackMessage = function (price) {
+  if (price >= 30000) {
+    return "Даем скидку в 10%";
+  } else if (price >= 15000 && price < 30000) {
+    return "Даем скидку в 5%";
+  } else if (price >= 0 && price < 15000) {
+    return "Скидка не предусмотрена";
+  } else {
+    return "Что-то пошло не так";
+  }
+};
+
+const showTypeof = function (variable) {
+  console.log(variable, typeof variable);
+};
+
+console.log(allServicePrices);
+console.log(fullPrice);
+console.log(res);
+console.log(servicePercentPrice);
+
+console.log(getRollbackMessage(fullPrice));
+
+console.log(typeof title);
+console.log(typeof screenPrice);
+console.log(typeof adaptive);
+
+console.log("Стоимость верстки экранов " + screenPrice + "рублей");
